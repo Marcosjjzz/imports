@@ -110,20 +110,28 @@ if (saberBoton !== null && saberBoton !== undefined && saberBoton instanceof HTM
     saberBoton.addEventListener("click", saberPuntuacion);
 }
 const ganadoPerdido = (comprobar : boolean) => { 
-    if (comprobar === true){
-    mostrarMensaje ("Lo has clavado ! Enhorabuena !");
-    deshabilitarBoton("damecarta");
-    deshabilitarBoton("plantate");
-    habilitarBoton("nuevapartida");
-    deshabilitarBoton("saber");
-    } else {
-        mostrarMensaje ("GAME OVER VUELVA A INTENTARLO");
-        deshabilitarBoton("damecarta");
-        deshabilitarBoton("plantate");
-        habilitarBoton("nuevapartida");
-        deshabilitarBoton("saber");    
-    }
+  if (comprobar === true){
+      ganar();
+
+  } else {
+      perdido();
+  }
 };
+
+const ganar = () => { 
+mostrarMensaje ("Lo has clavado ! Enhorabuena !");
+deshabilitarBoton("damecarta");
+deshabilitarBoton("plantate");
+habilitarBoton("nuevapartida");
+deshabilitarBoton("saber");
+}
+const perdido = () => {
+mostrarMensaje ("GAME OVER VUELVA A INTENTARLO");
+deshabilitarBoton("damecarta");
+deshabilitarBoton("plantate");
+habilitarBoton("nuevapartida");
+deshabilitarBoton("saber"); 
+}
   
   const mensajePlantarse = () => {
   if (juego.puntuacionFinal <= 4) {
